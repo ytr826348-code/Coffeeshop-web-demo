@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Coffee Shop — Kopi, Roti & Cerita</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#faf5ec;--surf:#fffaf2;--ink:#2b1a10;--mut:#7a6556;--acc:#b8582b;--acc2:#3b2316;--line:#e8dccb;--card:#f1e6d4;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17100b;--surf:#201610;--ink:#f3e9dc;--mut:#b9a592;--acc:#e08a55;--acc2:#e9d6bf;--line:#33261c;--card:#2a1d14;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#17100b;--surf:#201610;--ink:#f3e9dc;--mut:#b9a592;--acc:#e08a55;--acc2:#e9d6bf;--line:#33261c;--card:#2a1d14;color-scheme:dark}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 70px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 Inter,system-ui,sans-serif}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:30}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;line-height:1.15;margin:0}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1080px;margin:auto;padding:0 20px}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+.logo{font:800 22px Fraunces,Georgia,serif}.logo span{color:var(--acc)}
+nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0;font-size:14px;font-weight:500;color:var(--mut)}
+nav ul a:hover{color:var(--acc)}
+.btn{display:inline-block;background:var(--acc);color:#fff;padding:12px 22px;border-radius:99px;font-weight:600;font-size:15px;border:0;cursor:pointer;transition:transform .2s}
+.btn:hover{transform:translateY(-2px)}.btn.o{background:none;color:var(--ink);border:1.5px solid var(--line)}
+.hero{padding:70px 0 50px}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.tag{display:inline-block;font-size:13px;font-weight:600;color:var(--acc);background:var(--card);padding:6px 14px;border-radius:99px;margin-bottom:18px}
+h1{font-size:clamp(38px,6vw,64px);font-weight:800}h1 em{color:var(--acc);font-style:normal}
+.hero p{color:var(--mut);font-size:18px;max-width:480px;margin:18px 0 28px}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.hv{background:var(--card);border-radius:40% 60% 55% 45%/50% 45% 55% 50%;padding:30px;aspect-ratio:1;display:grid;place-items:center}
+.hv svg{width:100%;filter:drop-shadow(0 20px 20px #0003)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:50px}
+.stats div{background:var(--surf);border:1px solid var(--line);border-radius:18px;padding:18px;text-align:center}
+.stats b{font:800 28px Fraunces,Georgia,serif;color:var(--acc);display:block}.stats small{color:var(--mut)}
+section{padding:64px 0}
+.eyebrow{color:var(--acc);font-weight:600;font-size:13px;letter-spacing:.12em;text-transform:uppercase}
+h2{font-size:clamp(28px,4vw,40px);margin:8px 0 12px}
+.lead{color:var(--mut);max-width:560px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:28px 0}
+.tabs button{font:600 14px Inter,sans-serif;padding:10px 20px;border-radius:99px;border:1.5px solid var(--line);background:var(--surf);color:var(--ink);cursor:pointer}
+.tabs button.on{background:var(--acc2);color:var(--bg);border-color:var(--acc2)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:20px}
+.card{background:var(--surf);border:1px solid var(--line);border-radius:22px;overflow:hidden;transition:transform .25s,box-shadow .25s}
+.card:hover{transform:translateY(-6px);box-shadow:0 16px 30px #0002}
+.ph{background:var(--card);padding:14px 20px 4px}.ph svg{width:100%;display:block}
+.cb{padding:16px 18px 20px}.cb h3{font-size:19px}.cb p{margin:6px 0 12px;font-size:14px;color:var(--mut);min-height:44px}
+.pr{display:flex;justify-content:space-between;align-items:center}.pr b{color:var(--acc);font-size:17px}
+.pr a{font-size:13px;font-weight:600;border:1.5px solid var(--line);padding:6px 14px;border-radius:99px}.pr a:hover{background:var(--acc);color:#fff;border-color:var(--acc)}
+.badge{font-size:11px;font-weight:600;background:var(--acc);color:#fff;border-radius:99px;padding:2px 9px;margin-left:6px;vertical-align:middle}
+.about{background:var(--surf);border-block:1px solid var(--line)}
+.about .wrap{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
+.vals{display:grid;gap:14px;margin-top:20px}
+.vals div{display:flex;gap:14px}.vals i{font-style:normal;font-size:24px;background:var(--card);width:48px;height:48px;border-radius:14px;display:grid;place-items:center;flex:none}
+.vals p{margin:0;color:var(--mut);font-size:14px}.vals b{display:block}
+.t3{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;margin-top:28px}
+.q{background:var(--surf);border:1px solid var(--line);border-radius:22px;padding:24px}
+.q p{margin:0 0 16px}.q b{display:block}.q small{color:var(--mut)}.st{color:#e0a233;letter-spacing:2px}
+.info{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:28px}
+.box{background:var(--surf);border:1px solid var(--line);border-radius:22px;padding:26px}
+.box h3{margin-bottom:14px}.box table{width:100%;border-collapse:collapse}
+.box td{padding:8px 0;border-bottom:1px dashed var(--line);font-size:15px}.box td:last-child{text-align:right;color:var(--mut)}
+.box p{color:var(--mut);margin:0 0 10px}
+footer{background:var(--acc2);color:var(--bg);padding:36px 0;font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.fade{opacity:0;transform:translateY(24px);transition:.7s}.fade.in{opacity:1;transform:none}
+.fab{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:25;background:#25a35a;color:#fff;padding:13px 20px;border-radius:99px;font-weight:600;font-size:14px;box-shadow:0 8px 20px #0004}
+@media(max-width:760px){nav ul{display:none}.hero .wrap,.about .wrap,.info{grid-template-columns:1fr}.hv{max-width:320px;margin:auto}.stats{grid-template-columns:1fr 1fr}.hero{padding-top:36px}}
+@media(prefers-reduced-motion:reduce){.fade{transition:none}html{scroll-behavior:auto}}
+.ann{background:var(--acc2);color:var(--bg);text-align:center;font-size:13px;padding:8px 14px}
+.card{position:relative}.rk{position:absolute;top:12px;left:12px;z-index:2;background:var(--acc2);color:var(--bg);font:800 15px Fraunces,Georgia,serif;width:34px;height:34px;border-radius:50%;display:grid;place-items:center}
+.sr{width:100%;max-width:420px;margin-top:22px;padding:13px 18px;border-radius:99px;border:1.5px solid var(--line);background:var(--surf);color:var(--ink);font:inherit}
+.promos{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:26px}
+.pc{border-radius:22px;padding:26px;color:#fff;background:linear-gradient(135deg,#8a3d1c,#c26a38)}.pc:nth-child(2){background:linear-gradient(135deg,#2f4a3a,#5d8a62)}.pc:nth-child(3){background:linear-gradient(135deg,#3b2316,#7a4a2c)}.pc small{opacity:.85;font-weight:600;letter-spacing:.08em;text-transform:uppercase}.pc h3{margin:8px 0}.pc p{margin:0;opacity:.92}
+.faq details{background:var(--surf);border:1px solid var(--line);border-radius:16px;padding:16px 20px;margin-top:12px}.faq summary{font-weight:600;cursor:pointer}.faq p{margin:10px 0 0;color:var(--mut)}
+.map{position:relative;margin-top:20px;border:1px solid var(--line);border-radius:22px;overflow:hidden}
+.map svg{display:block;width:100%;height:340px}.mbg{fill:var(--card)}.rd{stroke:var(--surf);fill:none;stroke-linecap:round}.ml{font:600 11px Inter,sans-serif;fill:var(--mut)}.pl{font:600 12px Inter,sans-serif;fill:var(--ink)}
+.pin{cursor:pointer;fill:#5a7fa8;outline:none}.pin.main{fill:var(--acc)}.pin path{stroke:#fff;stroke-width:2}.pin.sel path{stroke:var(--ink);stroke-width:3}.pin:hover{opacity:.85}
+.pop{position:absolute;left:14px;bottom:14px;background:var(--surf);border:1px solid var(--line);border-radius:16px;padding:14px 16px;max-width:290px;box-shadow:0 10px 24px #0003}.pop b{font-family:Fraunces,Georgia,serif;font-size:17px}.pop p{margin:4px 0 0;font-size:13px;color:var(--mut)}
+.zm{position:absolute;right:12px;top:12px;display:grid;gap:6px}.zm button{width:36px;height:36px;border-radius:10px;border:1px solid var(--line);background:var(--surf);color:var(--ink);font-size:18px;cursor:pointer}
+#cartBtn{display:flex;gap:6px;align-items:center}
+#cart{position:fixed;top:0;right:0;bottom:0;width:min(380px,100%);background:var(--surf);border-left:1px solid var(--line);z-index:40;transform:translateX(100%);transition:transform .3s;display:flex;flex-direction:column;gap:12px;padding:calc(18px + env(safe-area-inset-top,0px)) 18px calc(18px + env(safe-area-inset-bottom,0px))}#cart.on{transform:none}
+.ch,.ct,.ci,.qt{display:flex;justify-content:space-between;align-items:center}.ch button,.qt button{width:30px;height:30px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}.ci{padding:10px 0;border-bottom:1px dashed var(--line);gap:8px}.qt{gap:8px}.ct{font-size:18px}
+</style>
+</head>
+<body>
+<div class="ann">🎉 Promo bulan ini: Happy Hour 14.00–17.00, diskon 20% semua minuman kopi!</div>
+<nav><div class="wrap"><a href="#top" class="logo">Coffee<span>Shop</span></a>
+<ul><li><a href="#favorit">Terlaris</a></li><li><a href="#menu">Menu</a></li><li><a href="#promo">Promo</a></li><li><a href="#tentang">Tentang</a></li><li><a href="#ulasan">Ulasan</a></li><li><a href="#kontak">Kontak</a></li></ul>
+<button class="btn" id="cartBtn" aria-label="Buka keranjang">🛒 <span id="cc">0</span></button></div></nav>
+
+<header class="hero" id="top"><div class="wrap">
+<div><span class="tag" id="stt">☕ Buka setiap hari</span>
+<h1>Seduhan hangat untuk <em>hari yang panjang.</em></h1>
+<p>Biji kopi pilihan nusantara, roti panggang segar, dan sudut nyaman untuk bekerja, ngobrol, atau sekadar rehat.</p>
+<div class="cta"><a class="btn" href="#menu">Jelajahi Menu</a><a class="btn o" href="#kontak">Kunjungi Kami</a></div></div>
+<div class="hv" id="heroArt"></div></div>
+<div class="wrap"><div class="stats">
+<div><b>12+</b><small>Biji kopi lokal</small></div><div><b>4.9★</b><small>Rating pelanggan</small></div><div><b>30+</b><small>Menu pilihan</small></div><div><b>5 th</b><small>Menyeduh bersama</small></div></div></div>
+</header>
+
+<section id="favorit" style="padding-bottom:0"><div class="wrap"><span class="eyebrow">🔥 Best seller bulan ini</span><h2>Paling banyak dipesan</h2><p class="lead">Tiga menu favorit pelanggan sepanjang bulan ini.</p><div class="grid" id="fav" style="margin-top:26px"></div></div></section>
+<section id="promo" style="padding-bottom:0"><div class="wrap"><span class="eyebrow">Promo</span><h2>Lebih hemat, lebih nikmat</h2>
+<div class="promos"><div class="pc fade"><small>Setiap hari</small><h3>Happy Hour 14.00–17.00</h3><p>Diskon 20% untuk semua minuman kopi.</p></div><div class="pc fade"><small>Paket kerja</small><h3>Americano + Croissant</h3><p>Hanya Rp39.000, hemat Rp7.000.</p></div><div class="pc fade"><small>Member</small><h3>Beli 5 Gratis 1</h3><p>Kumpulkan stempel digital di setiap pembelian.</p></div></div></div></section>
+<section id="menu"><div class="wrap">
+<span class="eyebrow">Menu kami</span><h2>Dibuat segar, setiap pesanan</h2>
+<p class="lead">Pilih favoritmu, lalu pesan lewat WhatsApp untuk diantar atau diambil.</p>
+<input id="q" class="sr" type="search" placeholder="🔍 Cari menu, mis. latte atau croissant" aria-label="Cari menu"><div class="tabs" id="tabs"></div><div class="grid" id="grid"></div></div></section>
+
+<section class="about" id="tentang"><div class="wrap">
+<div class="hv fade" id="aboutArt" style="border-radius:32px;aspect-ratio:1"></div>
+<div class="fade"><span class="eyebrow">Tentang kami</span><h2>Lebih dari sekadar secangkir kopi</h2>
+<p class="lead">Coffee Shop lahir dari kecintaan pada kopi lokal dan keramahan khas kita. Setiap biji disangrai dalam batch kecil agar rasanya tetap segar.</p>
+<div class="vals">
+<div><i>🌱</i><p><b>Biji lokal berkualitas</b>Langsung dari petani di Sumatra, Jawa, dan Sulawesi.</p></div>
+<div><i>🔥</i><p><b>Sangrai harian</b>Disangrai setiap pagi supaya aroma dan rasanya terjaga.</p></div>
+<div><i>🛋️</i><p><b>Ruang yang nyaman</b>Wi-Fi cepat, colokan di tiap meja, cocok untuk bekerja.</p></div></div></div></div></section>
+
+<section id="ulasan"><div class="wrap"><span class="eyebrow">Ulasan</span><h2>Kata mereka tentang kami</h2>
+<div class="t3">
+<div class="q fade"><div class="st">★★★★★</div><p>Gula aren latte-nya juara, manisnya pas. Tempatnya adem banget buat kerja seharian.</p><b>Rina</b><small>Freelancer</small></div>
+<div class="q fade"><div class="st">★★★★★</div><p>Croissant-nya renyah dan masih hangat. Barista ramah, pelayanan cepat.</p><b>Dimas</b><small>Mahasiswa</small></div>
+<div class="q fade"><div class="st">★★★★★</div><p>Tempat favorit ngumpul bareng tim. Tiramisu-nya wajib dicoba!</p><b>Sarah</b><small>Pegawai kantoran</small></div></div></div></section>
+
+<section id="faq"><div class="wrap"><span class="eyebrow">FAQ</span><h2>Pertanyaan yang sering muncul</h2><div class="faq">
+<details><summary>Apakah ada Wi-Fi dan colokan?</summary><p>Ada. Wi-Fi cepat gratis dan colokan tersedia di hampir setiap meja.</p></details>
+<details><summary>Bisa reservasi untuk rombongan?</summary><p>Bisa, hubungi kami lewat WhatsApp minimal sehari sebelumnya.</p></details>
+<details><summary>Apakah ada pilihan tanpa susu atau tanpa kafein?</summary><p>Ada. Kami menyediakan susu oat dan menu non-kopi seperti Matcha dan Lemon Tea.</p></details>
+<details><summary>Menerima pembayaran apa saja?</summary><p>Tunai, QRIS, dan kartu debit.</p></details></div></div></section>
+<section id="kontak" style="padding-top:0"><div class="wrap"><span class="eyebrow">Kontak</span><h2>Mampir, kami tunggu</h2>
+<div class="info">
+<div class="box fade"><h3>Jam buka</h3><table>
+<tr><td>Senin – Kamis</td><td>08.00 – 22.00</td></tr><tr><td>Jumat – Sabtu</td><td>08.00 – 23.00</td></tr><tr><td>Minggu</td><td>09.00 – 21.00</td></tr></table></div>
+<div class="box fade"><h3>Lokasi &amp; pesan</h3><p>📍 Jl. Kopi Nusantara No. 12, Manado</p><p>📞 +62 812-3456-7890</p><p>✉️ halo@coffeeshop.id</p>
+<a class="btn" href="https://wa.me/6281234567890?text=Halo%20Coffee%20Shop%2C%20saya%20mau%20pesan" target="_blank" rel="noopener">Chat WhatsApp</a></div></div>
+<div class="map fade" id="lokasi"><svg id="msv" viewBox="0 0 600 340" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Peta lokasi"><rect class="mbg" width="600" height="340"/><rect x="380" y="36" width="150" height="86" rx="14" fill="#8fb872" opacity=".55"/><path d="M-10 262C120 232 220 302 350 274S520 242 610 262" stroke="#7fb3d5" stroke-width="22" fill="none" opacity=".6"/><path class="rd" d="M-10 150H610" stroke-width="16"/><path class="rd" d="M300-10V350" stroke-width="16"/><path class="rd" d="M80-10L200 350" stroke-width="10"/><path class="rd" d="M-10 70L610 110" stroke-width="10"/><text class="ml" x="318" y="145">Jl. Kopi Nusantara</text><text class="ml" x="392" y="148" opacity="0">.</text>
+<g class="pin main sel" tabindex="0" data-t="Coffee Shop" data-d="Jl. Kopi Nusantara No. 12 · Buka hingga 22.00. Alamat fiktif untuk demo." transform="translate(300 126)"><path d="M0-22c-9 0-14 7-14 14 0 10 14 24 14 24s14-14 14-24c0-7-5-14-14-14z" transform="translate(0 6)"/><circle cx="0" cy="-8" r="5" fill="#fff"/><text class="pl" x="-34" y="40">Coffee Shop</text></g>
+<g class="pin" tabindex="0" data-t="Taman Kota" data-d="Sekitar 300 m dari kafe, nyaman untuk jalan santai." transform="translate(455 66)"><path d="M0-22c-9 0-14 7-14 14 0 10 14 24 14 24s14-14 14-24c0-7-5-14-14-14z" transform="translate(0 6)"/><circle cx="0" cy="-8" r="5" fill="#fff"/><text class="pl" x="-30" y="40">Taman Kota</text></g>
+<g class="pin" tabindex="0" data-t="Parkir Umum" data-d="Tersedia parkir motor dan mobil, 2 menit jalan kaki." transform="translate(170 126)"><path d="M0-22c-9 0-14 7-14 14 0 10 14 24 14 24s14-14 14-24c0-7-5-14-14-14z" transform="translate(0 6)"/><circle cx="0" cy="-8" r="5" fill="#fff"/><text class="pl" x="-34" y="40">Parkir Umum</text></g>
+<g class="pin" tabindex="0" data-t="Halte Bus" data-d="Halte terdekat, sekitar 150 m dari kafe." transform="translate(410 126)"><path d="M0-22c-9 0-14 7-14 14 0 10 14 24 14 24s14-14 14-24c0-7-5-14-14-14z" transform="translate(0 6)"/><circle cx="0" cy="-8" r="5" fill="#fff"/><text class="pl" x="-24" y="40">Halte Bus</text></g></svg>
+<div class="zm"><button id="zi" aria-label="Perbesar">+</button><button id="zo" aria-label="Perkecil">−</button></div>
+<div class="pop"><b id="pt">Coffee Shop</b><p id="pd">Jl. Kopi Nusantara No. 12 · Buka hingga 22.00. Alamat fiktif untuk demo.</p></div></div></div></section>
+
+<footer><div class="wrap"><span>© 2026 Coffee Shop. Seduh dengan cinta.</span><span>Website demo · nama &amp; data fiktif untuk portofolio</span></div></footer>
+<a class="fab" href="https://wa.me/6281234567890" target="_blank" rel="noopener">💬 Pesan</a>
+<aside id="cart" aria-label="Keranjang"><div class="ch"><h3>Keranjang pesanan</h3><button id="cx" aria-label="Tutup">✕</button></div><div id="ci" style="flex:1;overflow:auto"></div><div class="ct"><span>Total</span><b id="tt">Rp0</b></div><a class="btn" id="send" href="#" target="_blank" rel="noopener" style="text-align:center">Kirim pesanan ke WhatsApp</a></aside>
+
+<script>
+const S=b=>`<svg viewBox="0 0 200 160" aria-hidden="true">${b}</svg>`,sh='<ellipse cx="100" cy="140" rx="62" ry="8" fill="#0003"/>';
+const hot=(a,b)=>S(`${sh}<ellipse cx="100" cy="128" rx="58" ry="9" fill="#e9dcc8"/><path d="M45 62h110v28c0 28-22 44-55 44s-55-16-55-44z" fill="#fbf6ee"/><path d="M155 72h12a14 14 0 010 30h-14" fill="none" stroke="#fbf6ee" stroke-width="8"/><ellipse cx="100" cy="62" rx="55" ry="10" fill="${a}"/><ellipse cx="100" cy="62" rx="40" ry="6" fill="${b}"/><path d="M100 66c-14-8-12-14-6-14 4 0 6 3 6 3s2-3 6-3c6 0 8 6-6 14z" fill="#fff9"/><path d="M85 42c-6-8 6-12 0-24M112 42c-6-8 6-12 0-24" stroke="#8886" stroke-width="4" fill="none" stroke-linecap="round"/>`);
+const ice=(L,st='#e9d6bf')=>S(`<defs><clipPath id="g"><path d="M60 38h80l-9 96q-1 8-9 8H78q-8 0-9-8z"/></clipPath></defs><ellipse cx="100" cy="148" rx="46" ry="7" fill="#0003"/><g clip-path="url(#g)"><rect x="50" y="38" width="100" height="110" fill="#fff3"/>${L.map(([y,h,c])=>`<rect x="50" y="${y}" width="100" height="${h}" fill="${c}"/>`).join('')}<rect x="74" y="50" width="26" height="26" rx="5" fill="#fff6" transform="rotate(-12 87 63)"/><rect x="104" y="70" width="24" height="24" rx="5" fill="#fff5" transform="rotate(10 116 82)"/></g><path d="M60 38h80l-9 96q-1 8-9 8H78q-8 0-9-8z" fill="none" stroke="#fff9" stroke-width="3"/><path d="M112 8l8 94" stroke="${st}" stroke-width="6" stroke-linecap="round"/>`);
+const cake=(c1,c2,t)=>S(`<ellipse cx="100" cy="132" rx="78" ry="10" fill="#0003"/><ellipse cx="100" cy="124" rx="74" ry="9" fill="#eee4d4"/><rect x="42" y="74" width="116" height="20" rx="4" fill="${c1}"/><rect x="42" y="94" width="116" height="12" fill="${c2}"/><rect x="42" y="106" width="116" height="18" rx="4" fill="${c1}"/><rect x="38" y="58" width="124" height="18" rx="9" fill="${t}"/>`);
+const croissant=S(`${sh}<path d="M25 112c0-40 30-66 75-66s75 26 75 66c-14 8-30-4-40 6-10-12-24-12-35-12s-25 0-35 12c-10-10-26 2-40-6z" fill="#d9923b"/><path d="M70 52l-10 56M100 46v62M130 52l10 56" stroke="#a9651f" stroke-width="5" stroke-linecap="round"/><path d="M60 70c20-14 60-14 80 0" stroke="#f1c27a" stroke-width="5" fill="none" stroke-linecap="round"/>`);
+const bowl=S(`${sh}<path d="M32 78h136c0 42-30 60-68 60s-68-18-68-60z" fill="#fbf6ee"/><ellipse cx="100" cy="78" rx="68" ry="12" fill="#fff"/><g fill="#e0a233" stroke="#b9791d" stroke-width="3"><rect x="52" y="48" width="38" height="30" rx="8" transform="rotate(-14 70 63)"/><rect x="88" y="42" width="38" height="32" rx="8"/><rect x="124" y="48" width="36" height="30" rx="8" transform="rotate(14 142 63)"/></g><circle cx="100" cy="80" r="7" fill="#6aa84f"/><circle cx="72" cy="78" r="5" fill="#d65a3a"/>`);
+const toast=S(`${sh}<rect x="46" y="48" width="84" height="84" rx="14" fill="#c98a4b" transform="rotate(-8 88 90)"/><rect x="62" y="40" width="84" height="84" rx="14" fill="#e8b873" transform="rotate(6 104 82)"/><path d="M76 66q20-12 40 0t20 16M78 96q24-12 44 0" stroke="#5a3322" stroke-width="7" fill="none" stroke-linecap="round" transform="rotate(6 104 82)"/><path d="M92 62l10 8-10 8" stroke="#f6d56a" stroke-width="5" fill="none" stroke-linecap="round"/>`);
+const fries=S(`${sh}<g stroke="#f2c14e" stroke-width="9" stroke-linecap="round"><path d="M70 40l4 58M86 30l2 68M102 36v62M118 30l-2 68M134 40l-4 58"/></g><path d="M56 80h88l-10 56H66z" fill="#d65a3a"/><path d="M70 96h60" stroke="#fff8" stroke-width="5" stroke-linecap="round"/>`);
+const M={
+"Kopi":[["Espresso","Shot tunggal pekat dengan crema tebal.","18",hot('#5a3322','#2e1a0e')],["Americano","Espresso dengan air panas, bersih dan segar.","22",hot('#4a2a17','#2e1a0e')],["Cafe Latte","Espresso dan susu lembut, latte art di atasnya.","28",hot('#d9b78d','#b88a5b'),"Favorit"],["Cappuccino","Foam tebal berpadu espresso yang seimbang.","28",hot('#e6cfae','#a8744a')],["Es Kopi Gula Aren","Susu segar, espresso, dan gula aren asli.","26",ice([[38,28,'#4a2a17'],[66,82,'#efe0c9']]),"Best seller"],["Caramel Macchiato","Vanilla, susu, espresso, dan saus karamel.","32",ice([[38,24,'#c88a3f'],[62,30,'#4a2a17'],[92,56,'#f1e3cd']])]],
+"Non-Kopi":[["Matcha Latte","Matcha premium dengan susu dingin yang creamy.","30",ice([[38,30,'#fff'],[68,80,'#8fb35a']],'#c9e4a0')],["Chocolate Signature","Cokelat pekat dengan sentuhan susu.","28",ice([[38,30,'#e8d2b8'],[68,80,'#5a3322']])],["Red Velvet Latte","Manis lembut dengan warna merah menggoda.","28",ice([[38,30,'#fff'],[68,80,'#b3263a']],'#f4b0b8')],["Lemon Tea","Teh segar dengan perasan lemon.","20",ice([[38,110,'#e9a93a']],'#f6d56a')]],
+"Makanan":[["Butter Croissant","Renyah di luar, lembut di dalam, dipanggang tiap pagi.","24",croissant,"Baru"],["Chicken Katsu Bowl","Nasi hangat, ayam katsu, dan saus rahasia.","38",bowl],["Roti Bakar Cokelat Keju","Klasik yang selalu pas untuk ditemani kopi.","22",toast],["Kentang Goreng","Garing, bumbu gurih, cocok untuk berbagi.","20",fries]],
+"Dessert":[["Tiramisu","Lapisan mascarpone dan kopi, taburan kakao.","32",cake('#e8d3b0','#fff4e0','#5a3322')],["New York Cheesecake","Lembut, creamy, dengan dasar biskuit renyah.","34",cake('#f6e3b4','#d9a85a','#fff1c9')],["Fudgy Brownies","Cokelat pekat, tekstur fudgy yang melted.","26",cake('#4a2a17','#6b3d22','#2e1a0e')]]};
+const tabs=document.getElementById('tabs'),grid=document.getElementById('grid');
+function show(k){tabs.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.k===k));
+grid.innerHTML=M[k].map(([n,d,p,a,b])=>`<article class="card fade in"><div class="ph">${a}</div><div class="cb"><h3>${n}${b?`<span class="badge">${b}</span>`:''}</h3><p>${d}</p><div class="pr"><b>Rp${p}.000</b><a href="#" data-add="${n}|${p}">+ Tambah</a></div></div></article>`).join('')}
+Object.keys(M).forEach(k=>{const b=document.createElement('button');b.textContent=k;b.dataset.k=k;b.onclick=()=>show(k);tabs.appendChild(b)});
+show('Kopi');
+document.getElementById('heroArt').innerHTML=hot('#d9b78d','#b88a5b');
+document.getElementById('aboutArt').innerHTML=ice([[38,28,'#4a2a17'],[66,82,'#efe0c9']]);
+const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.15});
+document.querySelectorAll('.fade:not(.in)').forEach(el=>io.observe(el));
+const $=id=>document.getElementById(id),all=Object.values(M).flat(),CT={},fmt=n=>'Rp'+n.toLocaleString('id-ID');
+const card=(n,d,p,a,b,r)=>`<article class="card fade in">${r?`<span class="rk">${r}</span>`:''}<div class="ph">${a}</div><div class="cb"><h3>${n}${b?`<span class="badge">${b}</span>`:''}</h3><p>${d}</p><div class="pr"><b>Rp${p}.000</b><a href="#" data-add="${n}|${p}">+ Tambah</a></div></div></article>`;
+$('fav').innerHTML=['Es Kopi Gula Aren','Cafe Latte','Butter Croissant'].map((n,i)=>{const t=all.find(x=>x[0]===n);return card(t[0],`Terjual ${['412','356','289'][i]}+ porsi bulan ini.`,t[2],t[3],'Terlaris',i+1)}).join('');
+$('q').oninput=e=>{const v=e.target.value.trim().toLowerCase();if(!v){show(tabs.querySelector('.on')?.dataset.k||'Kopi');return}const r=all.filter(i=>(i[0]+i[1]).toLowerCase().includes(v));grid.innerHTML=r.length?r.map(i=>card(...i)).join(''):'<p style="color:var(--mut)">Menu tidak ditemukan.</p>';tabs.querySelectorAll('button').forEach(b=>b.classList.remove('on'))};
+function rc(){const k=Object.keys(CT);let t=0,c=0;$('ci').innerHTML=k.length?k.map(n=>{const i=CT[n];t+=i.p*i.q*1000;c+=i.q;return`<div class="ci"><span>${n}<br><small>${fmt(i.p*1000)}</small></span><span class="qt"><button data-q="${n}|-1">−</button>${i.q}<button data-q="${n}|1">+</button></span></div>`}).join(''):'<p style="color:var(--mut)">Keranjang masih kosong. Tambahkan menu favoritmu!</p>';$('tt').textContent=fmt(t);$('cc').textContent=c;$('send').href='https://wa.me/6281234567890?text='+encodeURIComponent('Halo Coffee Shop, saya mau pesan:\n'+k.map(n=>`- ${n} x${CT[n].q}`).join('\n')+'\nTotal: '+fmt(t))}
+rc();
+document.addEventListener('click',e=>{const a=e.target.closest('[data-add]');if(a){e.preventDefault();const[n,p]=a.dataset.add.split('|');CT[n]=CT[n]||{p:+p,q:0};CT[n].q++;rc();a.textContent='✓ Ditambah';setTimeout(()=>a.textContent='+ Tambah',900);return}const q=e.target.closest('[data-q]');if(q){const[n,d]=q.dataset.q.split('|');CT[n].q+=+d;if(CT[n].q<1)delete CT[n];rc()}});
+$('cartBtn').onclick=()=>$('cart').classList.add('on');$('cx').onclick=()=>$('cart').classList.remove('on');
+const pins=document.querySelectorAll('.pin');let z=1;
+pins.forEach(p=>{const f=()=>{$('pt').textContent=p.dataset.t;$('pd').textContent=p.dataset.d;pins.forEach(x=>x.classList.toggle('sel',x===p))};p.onclick=f;p.onkeydown=e=>{if(e.key==='Enter')f()}});
+const zm=d=>{z=Math.min(2.5,Math.max(1,z+d));$('msv').setAttribute('viewBox',`${300-300/z} ${170-170/z} ${600/z} ${340/z}`)};$('zi').onclick=()=>zm(.5);$('zo').onclick=()=>zm(-.5);
+{const d=new Date(),y=d.getDay(),h=d.getHours()+d.getMinutes()/60,[o,c]=y===0?[9,21]:y>=5?[8,23]:[8,22],on=h>=o&&h<c;$('stt').textContent=(on?'🟢 Buka sekarang':'🔴 Tutup sekarang')+` · ${String(o).padStart(2,'0')}.00 – ${c}.00`}
+</script>
+</body>
+</html>
